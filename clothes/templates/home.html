@@ -1,0 +1,52 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  {% extends 'base.html' %}
+
+  <title>Home</title>
+
+</head>
+<body>
+  <div class="container">
+{% block content %}
+
+  <h1 style="background-color:lightblue; margin:10px;">Welcome</h1>
+  <div align='center'>
+      <img src="http://wallperio.com/data/out/184/images_605127984.jpg" alt="">
+      <img src="http://wallperio.com/data/out/184/images_605127984.jpg" alt="">
+      <img src="http://wallperio.com/data/out/184/images_605127984.jpg" alt="">
+      <img src="http://wallperio.com/data/out/184/images_605127984.jpg" alt="">
+    </div>
+  {% if user.is_authenticated %}
+
+  <div class="row">
+    <div class="col-sm-12" style="background-color:aqua; margin:10px; ">
+        This is the best store to find beautiful clothes for the most reasonable price
+        ever!
+    </div>
+  </div>
+  <p><a href="{% url 'logout' %}">logout</a></p>
+  <p><a href="{% url 'password_reset' %}">reset password</a></p>
+{% else %}
+<div class="col-sm-12" style="margin:10px;;" align='center'>
+  <p> This is the best store to find beautiful clothes for the most reasonable price
+    ever! <br> Please log in to see cool stuff 
+  </p>
+  <button style="position:absolute; left: 40%;" type="submit" onclick="window.location.href = '/shop/login'">Log in</button>
+  <button style="position:absolute; right: 40%;" type="submit" onclick="window.location.href = '/shop/signup'">Sign Up</button>
+</div>
+
+
+{% endif %}
+{% endblock %}
+
+</div>
+</body>
+
+</html>
