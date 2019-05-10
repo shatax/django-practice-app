@@ -22,4 +22,7 @@ urlpatterns = [
     path('shop/', include('shop.urls')),
     path('shop/', include('django.contrib.auth.urls')), # new
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path ('about/', TemplateView.as_view(template_name='about.html'), name='about'),
+    path ('contact/', TemplateView.as_view(template_name='contact.html'), name='contact'),
+    
 ]

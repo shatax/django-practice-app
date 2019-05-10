@@ -12,41 +12,142 @@
   <title>Home</title>
 
 </head>
-<body>
-  <div class="container">
-{% block content %}
+{% block content %} 
 
-  <h1 style="background-color:lightblue; margin:10px;">Welcome</h1>
-  <div align='center'>
-      <img src="http://wallperio.com/data/out/184/images_605127984.jpg" alt="">
-      <img src="http://wallperio.com/data/out/184/images_605127984.jpg" alt="">
-      <img src="http://wallperio.com/data/out/184/images_605127984.jpg" alt="">
-      <img src="http://wallperio.com/data/out/184/images_605127984.jpg" alt="">
-    </div>
-  {% if user.is_authenticated %}
+<style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    .bg-text {
+      background-color:midnightblue;
+      color: white;
+      font-weight: bold;
+      border: 3px solid #f1f1f1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      padding: 20px;
+      text-align: center;
+      height: 50%;
+    }
+    .card {
+      background: lightgray;
+      height: 50%;
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .card:hover{
+      box-shadow: 10px;
+    }
 
+    </style>
+    <body>
+    
+{% if user.is_authenticated %}
+
+<div class="container-fluid" style="margin-top:30px;">
+  <div class="row" style="margin:10px;  background-color: lightgray;">
+    <div class="col-sm-12" style="padding:10px;">
+        <a style="color: black;" href="{% url 'home' %}"><button class="btn">Home</button></a>
+       <a href="/about/"><button style="position:absolute; right: 10%; color: black;" class="btn">About</button></a> 
+       <a href="/contact/"> <button style="position:absolute; right: 0%; color:black;" class="btn">Contact Us</button></a>
+
+      </div>
+  </div>
   <div class="row">
-    <div class="col-sm-12" style="background-color:aqua; margin:10px; ">
-        This is the best store to find beautiful clothes for the most reasonable price
-        ever!
+  <div class="col-sm-4">
+    <div class="card">
+    <h3>Men clothes</h3>
+    <img src="https://files.ontario.ca/small-biz-advice.png" alt="">
+    <h4>This is the exclusive collection in our store!</h4>
+  </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <h3>Women clothes</h3>
+      <img src="https://files.ontario.ca/small-biz-advice.png" alt="">
+      <h4>This is the exclusive collection in our store!</h4>
     </div>
   </div>
-  <p><a href="{% url 'logout' %}">logout</a></p>
-  <p><a href="{% url 'password_reset' %}">reset password</a></p>
-{% else %}
-<div class="col-sm-12" style="margin:10px;;" align='center'>
-  <p> This is the best store to find beautiful clothes for the most reasonable price
-    ever! <br> Please log in to see cool stuff 
-  </p>
-  <button style="position:absolute; left: 40%;" type="submit" onclick="window.location.href = '/shop/login'">Log in</button>
-  <button style="position:absolute; right: 40%;" type="submit" onclick="window.location.href = '/shop/signup'">Sign Up</button>
+  <div class="col-sm-4">
+    <div class="card">
+      <h3>Children clothes</h3>
+      <img src="https://files.ontario.ca/small-biz-advice.png" alt="">
+      <h4>This is the exclusive collection in our store!</h4>
+    </div>
+  </div>
+</div>
+<div>
+  <h2 align='center'>Current trend</h2>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+      <h3>Men clothes</h3>
+      <img src="https://files.ontario.ca/small-biz-advice.png" alt="">
+      <h4>This is the exclusive collection in our store!</h4>
+    </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <h3>Women clothes</h3>
+        <img src="https://files.ontario.ca/small-biz-advice.png" alt="">
+        <h4>This is the exclusive collection in our store!</h4>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <h3>Children clothes</h3>
+        <img src="https://files.ontario.ca/small-biz-advice.png" alt="">
+        <h4>This is the exclusive collection in our store!</h4>
+      </div>
+    </div>
+  </div>
 </div>
 
+<div>
+  <p><a style="position:absolute; left: 10%; color: black" href="{% url 'logout' %}"><button fab class="btn">logout</button></a></p>
+  <p><a style="position:absolute; right: 10%; color: black" href="{% url 'password_reset' %}"><button class="btn">reset password</button></a></p>
+</div>
+
+  
+{% else %}
+
+ 
+<div class="row" style="padding:10px;  background-color: lightgray;">
+    <div class="col-sm-12">
+        <button class="btn" style="color: black" type="submit" onclick="window.location.href = '/shop/login'">Log in</button>
+        <button class="btn" style="position:absolute; right: 0%; color: black" type="submit" onclick="window.location.href = '/shop/signup'">Sign Up</button>
+
+      </div>
+  </div>
+    
+<div class="bg-text">
+  <h2>Welcome</h2>
+  <p> This is the best store to find beautiful clothes for the most reasonable price
+      ever! <br> Please log in to see cool stuff 
+  </p>
+  <button class="btn" style="position:absolute; left: 40%; color: black" type="submit" onclick="window.location.href = '/shop/login'">Log in</button>
+  <button class="btn" style="position:absolute; right: 40%; color: black" type="submit" onclick="window.location.href = '/shop/signup'">Sign Up</button>
+
+</div>
+
+<div style="margin:10px;;" align='center'>
+
+</div>
+
+</body>
 
 {% endif %}
 {% endblock %}
-
-</div>
-</body>
-
 </html>
