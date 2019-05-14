@@ -25,7 +25,7 @@ SECRET_KEY = 'x)*l_&katxc1ly6&jkk)+6j2gi2m38#vx+du5r+%2b*)64l(3('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['clothesapp-practice2.herokuapp.com']
+ALLOWED_HOSTS = ['clothesapp-practice2.herokuapp.com', 'localhost']
 
 # Application definition
 
